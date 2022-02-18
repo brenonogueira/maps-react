@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents} from 'react-leaflet'
@@ -83,9 +84,8 @@ function deg2rad(deg) {
   useEffect(() => {
     console.log(latitute_now)
     console.log(longitude_now)
-    console.log(getDistanceFromLatLonInKm(-8.7915551, -63.8928622, -8.7696809, -63.9210139 ))
     vibrate()
-  }, [latitute_now,longitude_now ])
+  }, [latitute_now, longitude_now])
 
   const vibrate = () => {
     if(getDistanceFromLatLonInKm(-8.7915551, -63.8928622, -8.7916085, -63.8924504 ) < 1){
