@@ -92,6 +92,7 @@ function App() {
   const get_permission = () => {
     Notification.requestPermission().then(function (result) {
       console.log(result);
+      console.log(n)
     });
   }
 
@@ -99,7 +100,7 @@ function App() {
     if (getDistanceFromLatLonInKm(-8.7915551, -63.8928622, -8.7916085, -63.8924504) < 1 && Notification.permission === "granted") {
       navigator.vibrate(200); // 
       get_permission()
-     
+
       console.log('vibrou')
     }
   }
@@ -108,11 +109,10 @@ function App() {
 
   useEffect(() => {
     if (Notification.permission === "granted") {
-
-     n = new Notification("Hi! ");
+      n = new Notification("Hi! ");
     }
-  }, [n])
-  
+  }, [])
+
 
 
   // const location = [latitute_now, longitude_now]
@@ -122,6 +122,7 @@ function App() {
     const map = useMapEvents({
       click() {
         map.locate()
+        n = new Notification("Hi! ");
       },
       locationfound(e) {
         console.log(e)
